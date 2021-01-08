@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tbs-deployment
+  labels:
+    app: tbs-core-web-mvc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tbs-core-web-mvc
+  template:
+    metadata:
+      labels:
+        app: tbs-core-web-mvc
+    spec:
+      containers:
+      - name: tbs-core-web-mvc
+        image: tanzuregistry.azurecr.io/tbs-core-web-mvc
+      imagePullSecrets:
+      - name: tanzuregistry-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tbs-service
+  labels:
+    app: tbs-core-web-mvc
+spec:
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  selector:
+    app: tbs-core-web-mvc
