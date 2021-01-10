@@ -12,7 +12,7 @@ sudo docker login $harbor_server -u $harbor_username -p $harbor_password
 
 sudo kbld relocate -f /tmp/images.lock \
 		--lock-output /tmp/images-relocated.lock \
-		--repository ${harbor_server}/${harbor_project}/images
+		--repository ${harbor_server}/${harbor_project}/${harbor_repository}
 
 ytt -f /tmp/values.yaml \
     -f /tmp/manifests/ \
