@@ -1,35 +1,3 @@
-#az ad sp create-for-rbac --name tanzu-azure-sp --role Owner
-
-#az ad sp credential reset --name tanzu-azure-sp
-
-#ssh-keygen -t rsa -b 4096 -C "mijames@vmware.com"
-#eval $(ssh-agent -s)
-#ssh-add ~/.ssh/sp_rsa
-
-read -p "Azure Username: " azusername
-read -p "Azure Password: " azpassword
-read -p "Azure Subscription: " subscription
-
-az login -u $azusername -p $azpassword --tenant 29248f74-371f-4db2-9a50-c62a6877a0c1
-az account set --subscription $subscription
-
-az vm image terms accept --publisher vmware-inc --offer tkg-capi --plan k8s-1dot19dot1-ubuntu-1804
-
-
-#"appId": "69d70343-3dec-40e7-a08c-fb92314af1f0",
-#"displayName": "tkg-bootstrap-sp",
-#"name": "http://tanzu-azure-sp",
-#"password": "xIawuXyu3MQOZuK90c6h61C.nD8EquSfb.",
-#"tenant": "29248f74-371f-4db2-9a50-c62a6877a0c1"
-#"subscription": "b00f85f0-4695-451d-aa50-c4abfb8542bc"
-
-#sudo tkg init --ui
-
-tenantId=$(az account show --query tenantId --output tsv)
-subscriptionId=$(az account show --query id --output tsv)
-clientKey=$(az keyvault secret show --id https://tanzuvault.vault.azure.net/secrets/tkg-bootstrap-sp/09880a100ed24948bbad2bc54b73f031 --query value --output tsv)
-publicKey=$(cat .ssh/id_rsa.pub)
-
 rm .tkg/config.yaml
 tkg get management-cluster
 
