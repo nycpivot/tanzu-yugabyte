@@ -11,11 +11,11 @@ mv generate-kubeconfig.py yugabyte-setup/generate-kubeconfig.py
 sudo kubectl apply -f yugabyte-setup/yugabyte-rbac.yaml
 sudo kubectl apply -f yugabyte-setup/storage-class.yaml
 
-python yugabyte-setup/generate-kubeconfig.py -s yugabyte-helm
+sudo python yugabyte-setup/generate-kubeconfig.py -s yugabyte-helm
 
 sudo kubectl create namespace yb-platform
 
-sudo kubectl create -f yugabyte-setup/yugabyte-k8s-secret.yml -n yb-platform
+sudo kubectl create -f yugabyte-setup/yugabyte-k8s-secret.yaml -n yb-platform
 
 sudo helm repo add yugabytedb https://charts.yugabyte.com
 sudo helm search repo yugabytedb/yugaware -l
