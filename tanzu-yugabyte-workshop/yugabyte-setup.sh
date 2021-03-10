@@ -1,13 +1,3 @@
-wget https://tanzustorage.blob.core.windows.net/yugabyte/yugabyte-rbac.yaml
-wget https://tanzustorage.blob.core.windows.net/yugabyte/storage-class.yaml
-wget https://tanzustorage.blob.core.windows.net/yugabyte/yugabyte-k8s-secret.yaml
-wget https://tanzustorage.blob.core.windows.net/yugabyte/generate-kubeconfig.py
-
-mv yugabyte-rbac.yaml yugabyte-setup/yugabyte-rbac.yaml
-mv storage-class.yaml yugabyte-setup/storage-class.yaml
-mv yugabyte-k8s-secret.yaml yugabyte-setup/yugabyte-k8s-secret.yaml
-mv generate-kubeconfig.py yugabyte-setup/generate-kubeconfig.py
-
 sudo kubectl apply -f yugabyte-setup/yugabyte-rbac.yaml
 sudo kubectl apply -f yugabyte-setup/storage-class.yaml
 
