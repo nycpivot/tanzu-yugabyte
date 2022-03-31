@@ -1,0 +1,7 @@
+---
+applications:
+- name: api-gateway-microservice
+  random-route: false
+  path: target/api-gateway-microservice-0.0.1-SNAPSHOT.jar
+  services:
+  - yugastore-service-registry

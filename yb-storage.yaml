@@ -1,352 +1,175 @@
 apiVersion: storage.k8s.io/v1
-
 kind: StorageClass
-
 metadata:
-
     name: yugabyte-data
-
 provisioner: kubernetes.io/no-provisioner
-
 volumeBindingMode: WaitForFirstConsumer
-
 ---
-
 apiVersion: v1
-
 kind: PersistentVolume
-
 metadata:
-
   name: master-disk-1
-
 spec:
-
   capacity:
-
     storage: 5Gi
-
   accessModes:
-
     - ReadWriteOnce
-
   hostPath:
-
     path: "/yb/ybdemo/master-disk-1"
-
     type: DirectoryOrCreate
-
   storageClassName: yugabyte-data
-
-
 ---
-
 apiVersion: v1
-
 kind: PersistentVolume
-
 metadata:
-
  name: master-disk-2
-
 spec:
-
  capacity:
-
    storage: 5Gi
-
  accessModes:
-
    - ReadWriteOnce
-
  hostPath:
-
    path: "/yb/ybdemo/master-disk-2"
-
    type: DirectoryOrCreate
-
  storageClassName: yugabyte-data
-
-
 ---
-
 apiVersion: v1
-
 kind: PersistentVolume
-
 metadata:
-
  name: master-disk-3
-
 spec:
-
  capacity:
-
    storage: 5Gi
-
  accessModes:
-
    - ReadWriteOnce
-
  hostPath:
-
    path: "/yb/ybdemo/master-disk-3"
-
    type: DirectoryOrCreate
-
  storageClassName: yugabyte-data
-
 ---
-
 apiVersion: v1
-
 kind: PersistentVolume
-
 metadata:
-
  name: master-disk-4
-
 spec:
-
  capacity:
-
    storage: 5Gi
-
  accessModes:
-
    - ReadWriteOnce
-
  hostPath:
-
    path: "/yb/ybdemo/master-disk-4"
-
    type: DirectoryOrCreate
-
  storageClassName: yugabyte-data
-
 ---
-
 apiVersion: v1
-
 kind: PersistentVolume
-
 metadata:
-
  name: master-disk-5
-
 spec:
-
  capacity:
-
    storage: 5Gi
-
  accessModes:
-
    - ReadWriteOnce
-
  hostPath:
-
    path: "/yb/ybdemo/master-disk-5"
-
    type: DirectoryOrCreate
-
  storageClassName: yugabyte-data
-
 ---
-
 apiVersion: v1
-
 kind: PersistentVolume
-
 metadata:
-
  name: master-disk-6
-
 spec:
-
  capacity:
-
    storage: 5Gi
-
  accessModes:
-
    - ReadWriteOnce
-
  hostPath:
-
    path: "/yb/ybdemo/master-disk-6"
-
    type: DirectoryOrCreate
-
  storageClassName: yugabyte-data
-
-
 ---
-
 apiVersion: v1
-
 kind: PersistentVolume
-
 metadata:
-
   name: tserver-disk-1
-
 spec:
-
   capacity:
-
     storage: 10Gi
-
   accessModes:
-
     - ReadWriteOnce
-
   hostPath:
-
     path: "/yb/ybdemo/tserver-disk-1"
-
     type: DirectoryOrCreate
-
   storageClassName: yugabyte-data
-
 ---
-
 apiVersion: v1
-
 kind: PersistentVolume
-
 metadata:
-
  name: tserver-disk-2
-
 spec:
-
  capacity:
-
    storage: 10Gi
-
  accessModes:
-
    - ReadWriteOnce
-
  hostPath:
-
    path: "/yb/ybdemo/tserver-disk-2"
-
    type: DirectoryOrCreate
-
  storageClassName: yugabyte-data
-
 ---
-
 apiVersion: v1
-
 kind: PersistentVolume
-
 metadata:
-
  name: tserver-disk-3
-
 spec:
-
  capacity:
-
    storage: 10Gi
-
  accessModes:
-
    - ReadWriteOnce
-
  hostPath:
-
    path: "/yb/ybdemo/tserver-disk-3"
-
    type: DirectoryOrCreate
-
  storageClassName: yugabyte-data
-
-
 ---
-
 apiVersion: v1
-
 kind: PersistentVolume
-
 metadata:
-
  name: tserver-disk-4
-
 spec:
-
  capacity:
-
    storage: 10Gi
-
  accessModes:
-
    - ReadWriteOnce
-
  hostPath:
-
    path: "/yb/ybdemo/tserver-disk-4"
-
    type: DirectoryOrCreate
-
  storageClassName: yugabyte-data
-
 ---
-
 apiVersion: v1
-
 kind: PersistentVolume
-
 metadata:
-
  name: tserver-disk-5
-
 spec:
-
  capacity:
-
    storage: 10Gi
-
  accessModes:
-
    - ReadWriteOnce
-
  hostPath:
-
    path: "/yb/ybdemo/tserver-disk-5"
-
    type: DirectoryOrCreate
-
  storageClassName: yugabyte-data
-
-
 ---
-
 apiVersion: v1
-
 kind: PersistentVolume
-
 metadata:
-
  name: tserver-disk-6
-
 spec:
-
  capacity:
-
    storage: 10Gi
-
  accessModes:
-
    - ReadWriteOnce
-
  hostPath:
-
    path: "/yb/ybdemo/tserver-disk-6"
-
    type: DirectoryOrCreate
-
  storageClassName: yugabyte-data
+ 

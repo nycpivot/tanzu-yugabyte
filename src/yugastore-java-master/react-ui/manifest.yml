@@ -1,0 +1,5 @@
+---
+applications:
+- name: yugastore-ui
+  random-route: false
+  path: target/react-ui-0.0.1-SNAPSHOT.jar

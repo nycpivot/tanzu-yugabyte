@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: checkout-microservice
+server:
+  port: 8083
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://${eureka.instance.hostname}:8761/eureka}
