@@ -27,6 +27,14 @@ sudo mv apache-maven-3.8.5 /opt/maven
 rm apache-maven-3.8.5-bin.tar
 
 
-#DOTNET RUNTIME
-sudo snap install dotnet-runtime-50 --classic
-sudo snap alias dotnet-runtime-50.dotnet dotnet
+#DOTNET SDK &  RUNTIME
+sudo snap install dotnet-sdk --classic --channel=5.0
+sudo snap alias dotnet-sdk.dotnet dotnet
+
+#sudo snap install dotnet-runtime-50 --classic
+#sudo snap alias dotnet-runtime-50.dotnet dotnet
+
+export DOTNET_ROOT=/snap/dotnet-sdk/current
+
+dotnet build tanzu-yugabyte/src/tanzu-yugabyte-dotnet/tanzu-yugabyte-writer/
+dotnet build tanzu-yugabyte/src/tanzu-yugabyte-dotnet/tanzu-yugabyte-reader/
