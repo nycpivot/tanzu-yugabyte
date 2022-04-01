@@ -20,6 +20,11 @@ yugabyte-2.13.0.1/bin/ysqlsh -h $YB_TSERVER_URL -p 5433 -f tanzu-yugabyte/src/ta
 
 #WRITE TEST DATA INTO CASSANDRA
 cd tanzu-yugabyte/src/yugastore-java-master/resources
+
+chmod +x dataload.sh
+chmod +x cassandra-loader
+chmod +x parse_metadata_json.py
+
 ./dataload.sh
 
 cd $HOME
