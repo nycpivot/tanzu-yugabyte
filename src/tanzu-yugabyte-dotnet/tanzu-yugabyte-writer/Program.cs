@@ -2,7 +2,7 @@
 using System.Threading;
 using Npgsql;
 
-namespace Yugabyte_CSharp_Demo
+namespace tanzu_yugabyte_writer
 {
     class Program
     {
@@ -46,7 +46,7 @@ namespace Yugabyte_CSharp_Demo
                         NpgsqlCommand maxCmd = new NpgsqlCommand("SELECT MAX(id) FROM employee", conn);
                         var max = maxCmd.ExecuteScalar();
 
-                        if (max != null)
+                        if (max != DBNull.Value)
                         {
                             count = Convert.ToInt32(max) + 1;
                         }

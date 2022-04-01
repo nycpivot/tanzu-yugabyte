@@ -5,7 +5,7 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["tanzu-yugabyte-writer/tanzu-yugabyte-writer.csproj", "tanzu-yugabyte-writer/"]
+COPY ["./tanzu-yugabyte-writer.csproj", "tanzu-yugabyte-writer/"]
 RUN dotnet restore "tanzu-yugabyte-writer/tanzu-yugabyte-writer.csproj"
 COPY . .
 WORKDIR "/src/tanzu-yugabyte-writer"

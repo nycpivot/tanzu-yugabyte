@@ -2,7 +2,7 @@
 using System.Threading;
 using Npgsql;
 
-namespace yugabyte_reader
+namespace tanzu_yugabyte_reader
 {
     class Program
     {

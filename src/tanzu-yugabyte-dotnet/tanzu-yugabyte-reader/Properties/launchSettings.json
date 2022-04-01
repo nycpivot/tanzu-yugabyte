@@ -1,7 +1,8 @@
 {
   "profiles": {
     "tanzu-yugabyte-reader": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "\"a4de638beae294a5e843c38b35ff2633-921740351.us-east-2.elb.amazonaws.com\" \"yugabyte\" \"yugabyte\""
     },
     "Docker": {
       "commandName": "Docker"
