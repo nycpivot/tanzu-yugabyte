@@ -1,8 +1,8 @@
 #https://docs.yugabyte.com/latest/yugabyte-platform/install-yugabyte-platform/install-software/kubernetes/
 
-kubectl create ns yb-demo
+kubectl create ns tanzu-yugabyte-multiverse
 
-helm template yb-demo \
+helm install tanzu-yugabyte-multiverse \
       yugabytedb/yugabyte  \
       --version=2.11.2 \
       --set resource.master.requests.cpu=0.5 \
@@ -16,8 +16,7 @@ helm template yb-demo \
       --set storage.master.size=5Gi \
       --set storage.tserver.storageClass=yugabyte-data \
       --set storage.tserver.size=10Gi \
-      --namespace yb-demo > yb-multiverse.yaml
+      --namespace tanzu-yugabyte-multiverse
 
-kubectl apply -n yb-demo -f yb-multiverse.yaml
-
-#helm uprade --set ~~~~~
+#TO CHANGE CLUSTER PROPERTIES...
+#helm uprade tanzu-yugabyte-multiverse --set ~~~~~
