@@ -1,4 +1,4 @@
-kubectl get svc -A | grep tserver
+kubectl get svc -A | grep yb-tserver-service
 
 read -p "External Url: " external_url
 export YB_TSERVER_URL=$external_url

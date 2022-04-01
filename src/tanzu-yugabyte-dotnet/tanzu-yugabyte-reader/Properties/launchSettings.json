@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "tanzu-yugabyte-reader": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

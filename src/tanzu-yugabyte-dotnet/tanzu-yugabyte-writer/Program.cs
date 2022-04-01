@@ -8,8 +8,11 @@ namespace Yugabyte_CSharp_Demo
     {
         static void Main(string[] args)
         {
-            NpgsqlConnection conn = new NpgsqlConnection("host=ab75cc4eb4f6843e9af733f64362db0d-1135999124.us-east-2.elb.amazonaws.com;port=5433;database=tanzu_yugabyte_dotnet;user id=yugabyte;password=");
-            //NpgsqlConnection conn = new NpgsqlConnection("host=a5380cbe7bb894be9a4adfb1b111c6fd-841709826.us-east-2.elb.amazonaws.com;port=5433;database=yugabyte;user id=postgres;password=");
+            var host = args[0];
+            var database = args[1];
+            var user = args[2];
+
+            NpgsqlConnection conn = new NpgsqlConnection($"host={host};port=5433;database={database};user id={user};password=");
 
             try
             {

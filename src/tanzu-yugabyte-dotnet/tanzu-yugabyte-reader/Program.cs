@@ -8,7 +8,11 @@ namespace yugabyte_reader
     {
         static void Main(string[] args)
         {
-            NpgsqlConnection conn = new NpgsqlConnection("host=ab75cc4eb4f6843e9af733f64362db0d-1135999124.us-east-2.elb.amazonaws.com;port=5433;database=tanzu_yugabyte_dotnet;user id=yugabyte;password=");
+            var host = args[0];
+            var database = args[1];
+            var user = args[2];
+
+            NpgsqlConnection conn = new NpgsqlConnection($"host={host};port=5433;database={database};user id={user};password=");
 
             try
             {

@@ -2,7 +2,14 @@ kubectl get svc -A | grep tserver
 
 read -p "External Url: " external_url
 
-cd $HOME/yugastore-java
+#BUILD APPS
+cd $HOME/tanzu-yugabyte/src/yugastore-java-master
+
+mvn -DskipTests package
+
+
+
+
 
 rm docker-run.sh
 

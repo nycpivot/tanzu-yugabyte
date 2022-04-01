@@ -27,7 +27,6 @@ sudo mv apache-maven-3.8.5 /opt/maven
 rm apache-maven-3.8.5-bin.tar
 
 
-#BUILD APPS
-cd tanzu-yugabyte/src/yugastore-java-master
-
-mvn -DskipTests package
+#DOTNET RUNTIME
+sudo snap install dotnet-runtime-50 --classic
+sudo snap alias dotnet-runtime-50.dotnet dotnet
