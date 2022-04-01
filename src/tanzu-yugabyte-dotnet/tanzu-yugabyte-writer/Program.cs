@@ -54,7 +54,6 @@ namespace tanzu_yugabyte_writer
                 }
 
                 Console.WriteLine();
-                Console.WriteLine("ID\tNAME\t\t\tAGE");
 
                 for (int index = count; index < 1000000; index++)
                 {

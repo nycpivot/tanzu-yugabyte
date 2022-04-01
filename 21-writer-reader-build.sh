@@ -48,7 +48,5 @@ COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "tanzu-yugabyte-reader.dll", "${external_url}", "yugabyte", "yugabyte"]
 EOF
 
-docker build -t tanzu-yugabyte-writer -f Dockerfile-writer
-docker build -t tanzu-yugabyte-reader -f Dockerfile-reader
-
-docker run -it tanzu-yugabyte-writer
+docker build -t tanzu-yugabyte-writer -f Dockerfile-writer .
+docker build -t tanzu-yugabyte-reader -f Dockerfile-reader .

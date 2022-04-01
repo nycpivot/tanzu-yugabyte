@@ -12,6 +12,7 @@ namespace tanzu_yugabyte_reader
             var database = args[1];
             var user = args[2];
 
+
             NpgsqlConnection conn = new NpgsqlConnection($"host={host};port=5433;database={database};user id={user};password=");
 
             try
@@ -21,7 +22,12 @@ namespace tanzu_yugabyte_reader
                 Console.Write("Press Enter to continue...");
                 Console.ReadLine();
 
-                Console.WriteLine("ID\tNAME\t\t\t\tAGE");
+                var col1 = "ID";
+                var col2 = "NAME";
+                var col3 = "AGE";
+
+                Console.WriteLine("{0}{1}{2}{3}{4}{5}", "ID", new String(' ', 10 - 2), "NAME", new String(' ', 30 - 4), "AGE", new String(' ', 10 - 3));
+                Console.WriteLine(new String('-', 50));
 
                 for (int index = 1; index < 1000000; index++)
                 {
@@ -40,7 +46,10 @@ namespace tanzu_yugabyte_reader
                                 var name = reader.GetString(1);
                                 var age = reader.GetInt32(2);
 
-                                Console.WriteLine($"{id}\t{name}\t\t\t\t{age}");
+                                Console.WriteLine("{0}{1}{2}{3}{4}{5}", 
+                                    id, new String(' ', 10 - id.ToString().Length), 
+                                    name, new String(' ', 30 - name.Length), 
+                                    age, new String(' ', 10 - age.ToString().Length));
 
                                 Thread.Sleep(500);
                             }
