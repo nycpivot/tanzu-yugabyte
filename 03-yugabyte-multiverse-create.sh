@@ -10,7 +10,7 @@ helm install tanzu-yugabyte-multiverse \
       --set resource.tserver.requests.cpu=0.5 \
       --set resource.tserver.requests.memory=0.5Gi \
       --set replicas.master=3 \
-      --set replicas.tserver=3 \
+      --set replicas.tserver=4 \
       --set enableLoadBalancer=True \
       --set storage.master.storageClass=yugabyte-data \
       --set storage.master.size=5Gi \
@@ -19,4 +19,11 @@ helm install tanzu-yugabyte-multiverse \
       --namespace tanzu-yugabyte-multiverse
 
 #TO CHANGE CLUSTER PROPERTIES...
-#helm uprade tanzu-yugabyte-multiverse --set ~~~~~
+#helm uprade --set ~~~~~
+
+#SCALE CLUSTER SIZE
+#helm upgrade --set replicas.tserver=5 ./yugabyte
+
+or
+
+#kubectl scale statefulset yb-tserver --replicas=5
