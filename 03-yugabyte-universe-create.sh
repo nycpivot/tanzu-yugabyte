@@ -10,7 +10,8 @@ kubectl apply -f tanzu-yugabyte/yb-storage.yaml
 
 kubectl create ns $universe_name
 
-helm install $universe_name \
+rm ${universe_name}.yaml
+helm template $universe_name \
       yugabytedb/yugabyte  \
       --version=2.11.2 \
       --set resource.master.requests.cpu=0.5 \
@@ -25,13 +26,15 @@ helm install $universe_name \
       --set storage.tserver.storageClass=yugabyte-data \
       --set storage.tserver.size=10Gi \
       --namespace $universe_name \
-			--wait
+			--wait > ${universe_name}.yaml
+			
+kubectl apply -f ${universe_name}.yaml
 
 #bash tanzu-yugabyte/31-demo-post-universe-install.sh $universe_name
 
 
 #TO CHANGE CLUSTER PROPERTIES...
-#helm uprade --set ~~~~~
+#helm uprade --set replicas.tserver=5
 
 #SCALE CLUSTER SIZE
 #helm upgrade --set replicas.tserver=5 ./yugabyte

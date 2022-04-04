@@ -28,29 +28,20 @@ DEMO_PROMPT="${GREEN}➜ YB ${CYAN}\W "
 
 read -p "Universe name: " universe_name
 
-pe "kubectl get ns"
-echo
-
-pe "kubectl get pods -n ${universe_name}"
+pe "kubectl get pods"
 echo
 
 pe "kubectl exec -it yb-tserver-0 -n ${universe_name} -- df -kh"
 echo
 
-pe "kubectl get svc -n ${universe_name}"
+pe "kubectl get pods -n ${universe_name} -o wide"
 echo
 
+pe "aws ec2 describe-instances | jq -r '.Reservations[].Instances[]|.InstanceId+\"\t\"+.Placement.AvailabilityZone+\"\t\"+.PrivateIpAddress+\"\t\"+(.Tags[] | select(.Key == \"Name\").Value)+\"\t\"+.State.Name' | grep multiverse-md"
+echo
 
+read -p "Instance Id: " instance_id
+echo
 
-
-
-
-#kubectl get pods -n $workload_cluster_name -o wide
-
-#aws ec2 describe-instances | jq -r '.Reservations[].Instances[]|.InstanceId+"\t"+.Placement.AvailabilityZone+"\t"+.PrivateIpAddress+"\t"+(.Tags[] | select(.Key == "Name").Value)+"\t"+.State.Name' | grep multiverse-md
-
-#read -p "Instance Id: " instance_id
-
-#aws ec2 stop-instances --instance-ids $instance_id
-
-
+pe "aws ec2 stop-instances --instance-ids ${instance_id}"
+echo

@@ -21,6 +21,7 @@ namespace tanzu_yugabyte_reader
 
                 Console.Write("Press Enter to continue...");
                 Console.ReadLine();
+			Console.ReadLine();
 
                 var col1 = "ID";
                 var col2 = "NAME";

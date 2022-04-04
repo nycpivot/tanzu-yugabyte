@@ -9,8 +9,6 @@ kubectl config use-context ${cluster_context}-admin@${cluster_context}
 
 kubectl create namespace yb-platform
 
-mkdir tanzu-yugabyte
-
 rm tanzu-yugabyte/yugabyte-k8s-secret.yaml
 cat <<EOF | tee tanzu-yugabyte/yugabyte-k8s-secret.yaml
 apiVersion: v1
