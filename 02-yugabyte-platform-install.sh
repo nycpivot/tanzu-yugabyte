@@ -1,11 +1,10 @@
 #https://docs.yugabyte.com/latest/yugabyte-platform/install-yugabyte-platform/install-software/kubernetes/
 
 read -p "Azure subscription: " subscription
-read -p "Cluster context: " cluster_context
 
 yugabyte_secret=$(az keyvault secret show --name yugabyte-secret --subscription $subscription --vault-name tanzuvault --query value --output tsv)
 
-kubectl config use-context ${cluster_context}-admin@${cluster_context}
+kubectl config use-context tanzu-yugabyte-multiverse-admin@tanzu-yugabyte-multiverse
 
 kubectl create namespace yb-platform
 

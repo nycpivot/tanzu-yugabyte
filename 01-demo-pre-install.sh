@@ -39,24 +39,3 @@ echo
 
 pe "kubectl get ns"
 echo
-
-#pe "aws ec2 describe-instances | jq -r '.Reservations[].Instances[]|.InstanceId+\"\t\"+.Placement.AvailabilityZone+\"\t\"+.PrivateIpAddress+\"\t\"+(.Tags[] | select(.Key == \"Name\").Value)+\"\t\"+.State.Name' | grep multiverse-md"
-#echo
-
-
-
-
-
-
-
-
-
-#kubectl get pods -n $workload_cluster_name -o wide
-
-#aws ec2 describe-instances | jq -r '.Reservations[].Instances[]|.InstanceId+"\t"+.Placement.AvailabilityZone+"\t"+.PrivateIpAddress+"\t"+(.Tags[] | select(.Key == "Name").Value)+"\t"+.State.Name' | grep multiverse-md
-
-#read -p "Instance Id: " instance_id
-
-#aws ec2 stop-instances --instance-ids $instance_id
-
-

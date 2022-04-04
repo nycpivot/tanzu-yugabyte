@@ -28,7 +28,7 @@ helm template $universe_name \
       --namespace $universe_name \
 			--wait > ${universe_name}.yaml
 			
-kubectl apply -f ${universe_name}.yaml
+kubectl apply -f ${universe_name}.yaml -n $universe_name
 
 #bash tanzu-yugabyte/31-demo-post-universe-install.sh $universe_name
 
