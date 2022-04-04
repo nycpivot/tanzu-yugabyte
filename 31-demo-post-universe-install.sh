@@ -26,23 +26,11 @@ clear
 
 DEMO_PROMPT="${GREEN}➜ YB ${CYAN}\W "
 
-read -p "Workload Cluster Name (tanzu-yugabyte-multiverse): " workload_cluster_name
-echo
-
-if [ -z $workload_cluster_name ]
-then
-	workload_cluster_name=tanzu-yugabyte-multiverse
-fi
-
-pe "kubectl config use-context ${workload_cluster_name}-admin@${workload_cluster_name}"
-echo
-
 pe "kubectl get ns"
 echo
 
-#pe "aws ec2 describe-instances | jq -r '.Reservations[].Instances[]|.InstanceId+\"\t\"+.Placement.AvailabilityZone+\"\t\"+.PrivateIpAddress+\"\t\"+(.Tags[] | select(.Key == \"Name\").Value)+\"\t\"+.State.Name' | grep multiverse-md"
-#echo
-
+pe "kubectl get pods -n $1"
+echo
 
 
 

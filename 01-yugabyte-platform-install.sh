@@ -29,9 +29,5 @@ helm repo update
 #helm search repo yugabytedb/yugaware -l | grep 2.13.0
 helm install yugabyte-platform yugabytedb/yugaware --version 2.13.0 -n yb-platform --wait
 
-
-#APPLY STORAGE CLASS AND PV
-kubectl apply -f tanzu-yugabyte/yb-storage.yaml
-
 kubectl get pods -n yb-platform
 kubectl get svc -n yb-platform
