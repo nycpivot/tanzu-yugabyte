@@ -27,7 +27,7 @@ helm install $universe_name \
       --namespace $universe_name \
 			--wait
 
-bash tanzu-yugabyte/31-demo-post-universe-install.sh $universe_name
+#bash tanzu-yugabyte/31-demo-post-universe-install.sh $universe_name
 
 
 #TO CHANGE CLUSTER PROPERTIES...
