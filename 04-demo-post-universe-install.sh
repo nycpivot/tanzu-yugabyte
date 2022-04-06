@@ -35,5 +35,5 @@ echo
 pe "kubectl exec -it yb-tserver-0 -n tanzu-yb-multiverse -- df -kh"
 echo
 
-pe "kubectl get svc -n tanzu-yb-multiverse"
+pe "kubectl get svc -n tanzu-yb-multiverse | grep yb-master-ui"
 echo

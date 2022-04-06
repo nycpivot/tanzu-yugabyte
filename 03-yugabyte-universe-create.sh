@@ -1,17 +1,19 @@
 #https://docs.yugabyte.com/latest/yugabyte-platform/install-yugabyte-platform/install-software/kubernetes/
 
-read -p "Universe name: " universe_name
+read -p "Cluster name: " cluster_name
 read -p "Master count: " master_count #3
 read -p "TServer count: " tserver_count #3 or more
 
-kubectl create ns $universe_name
+kubectl config use-contex${cluster_name}-admin${cluster_name}
+
+kubectl create ns $cluster_name
 
 #APPLY STORAGE CLASS AND PV
 kubectl delete -f tanzu-yugabyte/yb-storage.yaml
-kubectl apply -f tanzu-yugabyte/yb-storage.yaml -n $universe_name
+kubectl apply -f tanzu-yugabyte/yb-storage.yaml -n $cluster_name
 
-rm ${universe_name}.yaml
-helm template $universe_name \
+rm ${cluster_name}.yaml
+helm template $cluster_name \
       yugabytedb/yugabyte  \
       --version=2.11.2 \
       --set resource.master.requests.cpu=0.5 \
@@ -25,11 +27,11 @@ helm template $universe_name \
       --set storage.master.size=5Gi \
       --set storage.tserver.storageClass=yugabyte-data \
       --set storage.tserver.size=10Gi \
-      --namespace $universe_name > ${universe_name}.yaml
+      --namespace $cluster_name > ${cluster_name}.yaml
 			
-kubectl apply -f ${universe_name}.yaml -n $universe_name
+kubectl apply -f ${cluster_name}.yaml -n $cluster_name
 
-#bash tanzu-yugabyte/31-demo-post-universe-install.sh $universe_name
+#bash tanzu-yugabyte/31-demo-post-universe-install.sh $cluster_name
 
 
 #TO CHANGE CLUSTER PROPERTIES...

@@ -26,12 +26,12 @@ clear
 
 DEMO_PROMPT="${GREEN}➜ YB ${CYAN}\W "
 
-read -p "Workload Cluster Name (tanzu-yugabyte-multiverse): " workload_cluster_name
+read -p "Workload Cluster Name (tanzu-yb-multiverse): " workload_cluster_name
 echo
 
 if [ -z $workload_cluster_name ]
 then
-	workload_cluster_name=tanzu-yugabyte-multiverse
+	workload_cluster_name=tanzu-yb-multiverse
 fi
 
 pe "kubectl config use-context ${workload_cluster_name}-admin@${workload_cluster_name}"
