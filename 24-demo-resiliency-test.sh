@@ -26,13 +26,7 @@ clear
 
 DEMO_PROMPT="${GREEN}➜ YB ${CYAN}\W "
 
-pe "kubectl get pods"
-echo
-
-pe "kubectl exec -it yb-tserver-0 -n tanzu-yugabyte-multiverse -- df -kh"
-echo
-
-pe "kubectl get pods -n tanzu-yugabyte-multiverse -o wide"
+pe "kubectl get pods -n tanzu-yb-multiverse -o wide"
 echo
 
 pe "aws ec2 describe-instances | jq -r '.Reservations[].Instances[]|.InstanceId+\"\t\"+.Placement.AvailabilityZone+\"\t\"+.PrivateIpAddress+\"\t\"+(.Tags[] | select(.Key == \"Name\").Value)+\"\t\"+.State.Name' | grep multiverse-md"

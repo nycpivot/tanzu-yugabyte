@@ -4,7 +4,7 @@ read -p "Azure subscription: " subscription
 
 yugabyte_secret=$(az keyvault secret show --name yugabyte-secret --subscription $subscription --vault-name tanzuvault --query value --output tsv)
 
-kubectl config use-context tanzu-yugabyte-multiverse-admin@tanzu-yugabyte-multiverse
+kubectl config use-context tanzu-yb-multiverse-admin@tanzu-yb-multiverse
 
 kubectl create namespace yb-platform
 

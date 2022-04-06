@@ -25,10 +25,6 @@ namespace tanzu_yugabyte_reader
                     Console.ReadLine();
 			    Console.WriteLine();
 
-                    var col1 = "ID";
-                    var col2 = "NAME";
-                    var col3 = "AGE";
-
                     Console.WriteLine("{0}{1}{2}{3}{4}{5}", "ID", new String(' ', 10 - 2), "NAME", new String(' ', 30 - 4), "AGE", new String(' ', 10 - 3));
                     Console.WriteLine(new String('-', 50));
 

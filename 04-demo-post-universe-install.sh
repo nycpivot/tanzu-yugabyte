@@ -29,11 +29,11 @@ DEMO_PROMPT="${GREEN}➜ YB ${CYAN}\W "
 pe "kubectl get ns"
 echo
 
-pe "kubectl get pods -n tanzu-yugabyte-multiverse"
+pe "kubectl get pods -n tanzu-yb-multiverse --watch"
 echo
 
-pe "kubectl exec -it yb-tserver-0 -n tanzu-yugabyte-multiverse -- df -kh"
+pe "kubectl exec -it yb-tserver-0 -n tanzu-yb-multiverse -- df -kh"
 echo
 
-pe "kubectl get svc"
+pe "kubectl get svc -n tanzu-yb-multiverse"
 echo

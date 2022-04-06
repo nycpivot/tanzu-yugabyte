@@ -172,4 +172,59 @@ spec:
    path: "/yb/ybdemo/tserver-disk-6"
    type: DirectoryOrCreate
  storageClassName: yugabyte-data
- 
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+ name: tserver-disk-7
+spec:
+ capacity:
+   storage: 10Gi
+ accessModes:
+   - ReadWriteOnce
+ hostPath:
+   path: "/yb/ybdemo/tserver-disk-7"
+   type: DirectoryOrCreate
+ storageClassName: yugabyte-data
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+ name: tserver-disk-8
+spec:
+ capacity:
+   storage: 10Gi
+ accessModes:
+   - ReadWriteOnce
+ hostPath:
+   path: "/yb/ybdemo/tserver-disk-8"
+   type: DirectoryOrCreate
+ storageClassName: yugabyte-data
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+ name: tserver-disk-9
+spec:
+ capacity:
+   storage: 10Gi
+ accessModes:
+   - ReadWriteOnce
+ hostPath:
+   path: "/yb/ybdemo/tserver-disk-9"
+   type: DirectoryOrCreate
+ storageClassName: yugabyte-data
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+ name: tserver-disk-10
+spec:
+ capacity:
+   storage: 10Gi
+ accessModes:
+   - ReadWriteOnce
+ hostPath:
+   path: "/yb/ybdemo/tserver-disk-10"
+   type: DirectoryOrCreate
+ storageClassName: yugabyte-data

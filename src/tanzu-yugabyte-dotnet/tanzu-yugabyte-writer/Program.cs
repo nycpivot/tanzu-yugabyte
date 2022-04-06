@@ -86,6 +86,7 @@ namespace tanzu_yugabyte_writer
                         catch (Exception ex)
                         {
                             Console.WriteLine("ERROR: " + ex.Message);
+                    		 Console.ReadLine();
 
                             if (conn.State == System.Data.ConnectionState.Closed)
                             {
