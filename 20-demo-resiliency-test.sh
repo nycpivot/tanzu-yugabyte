@@ -44,5 +44,8 @@ echo
 pe "aws ec2 stop-instances --instance-ids ${instance_id}"
 echo
 
+pe "kubectl get svc -n tanzu-yb-multiverse | grep yb-tserver-service"
+echo
+
 pe "kubectl scale statefulset yb-tserver --replicas=5"
 echo
