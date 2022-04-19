@@ -1,0 +1,19 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: yb-test-run
+spec:
+  params:
+    - name: tanzu-cluster-name
+      type: string
+    - name: tanzu-container-image
+      type: string
+  tasks:
+    - name: yb-cluster
+      taskRef:
+        name: yb-cluster-create
+      params:
+        - name: tanzu-cluster-name
+          value: $(params.tanzu-cluster-name)
+        - name: tanzu-container-image
+          value: $(params.tanzu-container-image)

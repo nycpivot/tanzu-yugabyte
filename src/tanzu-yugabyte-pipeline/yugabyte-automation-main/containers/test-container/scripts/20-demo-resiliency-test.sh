@@ -35,7 +35,6 @@ echo
 pe "kubectl delete pod ${pod_name} -n tanzu-yb-multiverse"
 echo
 
-pe "clear"
 pe "aws ec2 describe-instances | jq -r '.Reservations[].Instances[]|.InstanceId+\"\t\"+.Placement.AvailabilityZone+\"\t\"+.PrivateIpAddress+\"\t\"+(.Tags[] | select(.Key == \"Name\").Value)+\"\t\"+.State.Name' | grep multiverse-md"
 echo
 
@@ -45,10 +44,8 @@ echo
 pe "aws ec2 stop-instances --instance-ids ${instance_id}"
 echo
 
-pe "clear"
 pe "kubectl get svc -n tanzu-yb-multiverse | grep yb-tserver-service"
 echo
 
-pe "clear"
-pe "kubectl scale statefulset yb-tserver -n tanzu-yb-multiverse --replicas=4"
+pe "kubectl scale statefulset yb-tserver --replicas=5"
 echo

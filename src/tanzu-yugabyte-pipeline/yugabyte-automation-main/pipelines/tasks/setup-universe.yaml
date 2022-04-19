@@ -1,0 +1,35 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: yb-universe-create
+spec:
+  params:
+    - name: tanzu-cluster-name
+      type: string
+    - name: tanzu-container-image
+      type: string
+    - name: tanzu-yb-version
+      type: string
+  steps:
+    - name: step-yb-universe-setup
+      image: $(params.tanzu-container-image)
+      securityContext:
+        privileged: true
+        runAsUser: 0
+      command: ["/bin/bash"]
+      args: 
+      - "/tmp/03-yugabyte-universe-create.sh"
+      env:
+      - name: TANZU_YB_SECRET
+        valueFrom:
+          secretKeyRef:
+            name: yb-secret
+            key: TANZU_YB_SECRET
+      - name: TANZU_CLUSTER_NAME
+        value: $(params.tanzu-cluster-name)
+      - name: TANZU_YB_MASTER_COUNT
+        value: "3"
+      - name: TANZU_YB_TSERVER_COUNT
+        value: "3"
+      - name: TANZU_YB_VERSION
+        value: $(params.tanzu-yb-version)

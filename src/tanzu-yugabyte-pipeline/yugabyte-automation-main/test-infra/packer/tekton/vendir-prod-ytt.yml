@@ -1,0 +1,10 @@
+#@ load("@ytt:data", "data")
+---
+apiVersion: vendir.k14s.io/v1alpha1
+kind: Config
+directories:
+- path: vendor
+  contents:
+  - path: .
+    http:
+      url: https://gitlab.eng.vmware.com/pwall/arcas-tekton-bootstrap/-/raw/main/launch.sh

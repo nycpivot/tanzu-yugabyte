@@ -1,0 +1,15 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: create-yb-universe-test
+spec:
+  serviceAccountName: build-bot
+  pipelineRef:
+    name: yb-test-universe-run
+  params:
+    - name: tanzu-cluster-name
+      value: tanzu-yugabyte-multiverse
+    - name: tanzu-container-image
+      value: 964978768106.dkr.ecr.us-east-1.amazonaws.com/tanzu-yugabyte-test:latest
+    - name: tanzu-yb-version
+      value: "2.11.2"
