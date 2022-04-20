@@ -1,0 +1,13 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: yb-db-setup-run
+spec:
+  serviceAccountName: build-bot
+  pipelineRef:
+    name: yb-db-setup
+  params:
+    - name: tanzu-cluster-name
+      value: tanzu-yugabyte-multiverse
+    - name: tanzu-container-image
+      value: 964978768106.dkr.ecr.us-east-1.amazonaws.com/tanzu-yugabyte-test:latest

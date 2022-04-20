@@ -1,11 +1,11 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: reset-yb-universe
+  name: yb-cluster-reset-run
 spec:
   serviceAccountName: build-bot
   pipelineRef:
-    name: yb-cluster-reset-run
+    name: yb-cluster-reset
   params:
     - name: tanzu-cluster-name
       value: tanzu-yugabyte-multiverse

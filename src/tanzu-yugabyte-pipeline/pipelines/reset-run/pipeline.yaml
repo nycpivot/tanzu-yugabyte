@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: yb-cluster-reset-run
+  name: yb-cluster-reset
 spec:
   params:
     - name: tanzu-cluster-name
@@ -9,9 +9,9 @@ spec:
     - name: tanzu-container-image
       type: string
   tasks:
-    - name: yb-cluster-reset
+    - name: yb-cluster-reset-task
       taskRef:
-        name: yb-cluster-reset
+        name: yb-cluster-reset-task
       params:
         - name: tanzu-cluster-name
           value: $(params.tanzu-cluster-name)

@@ -1,0 +1,35 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: yb-db-setup-task
+spec:
+  params:
+    - name: tanzu-cluster-name
+      type: string
+    - name: tanzu-container-image
+      type: string
+  steps:
+    - name: yb-download-step
+      image: $(params.tanzu-container-image)
+      securityContext:
+        privileged: true
+        runAsUser: 0
+      command: ["/bin/bash"]
+      args: 
+      - "/tmp/10-database-prereqs.sh"
+    - name: yb-runtimes-step
+      image: $(params.tanzu-container-image)
+      securityContext:
+        privileged: true
+        runAsUser: 0
+      command: ["/bin/bash"]
+      args:
+      - "/tmp/11-runtimes-install.sh"
+    - name: yb-db-step
+      image: $(params.tanzu-container-image)
+      securityContext:
+        privileged: true
+        runAsUser: 0
+      command: ["/bin/bash"]
+      args:
+      - "/tmp/12-databases-create.sh"

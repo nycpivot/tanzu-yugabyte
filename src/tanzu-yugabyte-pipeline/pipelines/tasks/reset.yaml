@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: yb-cluster-reset
+  name: yb-cluster-reset-task
 spec:
   params:
     - name: tanzu-cluster-name
@@ -9,7 +9,7 @@ spec:
     - name: tanzu-container-image
       type: string
   steps:
-    - name: step-yb-cluster-reset
+    - name: yb-cluster-reset-step
       image: $(params.tanzu-container-image)
       securityContext:
         privileged: true

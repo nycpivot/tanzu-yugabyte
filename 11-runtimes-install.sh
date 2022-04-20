@@ -12,10 +12,6 @@ sudo mkdir /opt/java
 sudo mv jdk-17 /opt/java/jdk-17
 rm openjdk-17_linux-x64_bin.tar
 
-export JAVA_HOME=/opt/java/jdk-17
-export PATH=$PATH:/opt/java/jdk-17/bin
-export PATH=$PATH:/opt/maven/apache-maven-3.8.5/bin
-
 
 #INSTALL MAVEN
 wget https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz
@@ -28,13 +24,13 @@ rm apache-maven-3.8.5-bin.tar
 
 
 #DOTNET SDK &  RUNTIME
-sudo snap install dotnet-sdk --classic --channel=5.0
-sudo snap alias dotnet-sdk.dotnet dotnet
+#sudo snap install dotnet-sdk --classic --channel=5.0
+#sudo snap alias dotnet-sdk.dotnet dotnet
 
-#sudo snap install dotnet-runtime-50 --classic
-#sudo snap alias dotnet-runtime-50.dotnet dotnet
+##sudo snap install dotnet-runtime-50 --classic
+##sudo snap alias dotnet-runtime-50.dotnet dotnet
 
-export DOTNET_ROOT=/snap/dotnet-sdk/current
+#export DOTNET_ROOT=/snap/dotnet-sdk/current
 
-dotnet build tanzu-yugabyte/src/tanzu-yugabyte-dotnet/tanzu-yugabyte-writer/
-dotnet build tanzu-yugabyte/src/tanzu-yugabyte-dotnet/tanzu-yugabyte-reader/
+#dotnet build tanzu-yugabyte/src/tanzu-yugabyte-dotnet/tanzu-yugabyte-writer/
+#dotnet build tanzu-yugabyte/src/tanzu-yugabyte-dotnet/tanzu-yugabyte-reader/

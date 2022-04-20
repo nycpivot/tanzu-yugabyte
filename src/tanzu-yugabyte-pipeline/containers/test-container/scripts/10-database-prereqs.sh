@@ -1,3 +1,5 @@
+sudo apt-get install wget
+
 rm yugabyte-2.13.0.1-b2-linux-x86_64.tar.gz
 rm -rf yugabyte-2.13.0.1
 
@@ -9,3 +11,5 @@ cd yugabyte-2.13.0.1/
 
 ./bin/post_install.sh
 #./bin/yugabyted start
+
+cd $HOME
